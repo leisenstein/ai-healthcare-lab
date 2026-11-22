@@ -1,5 +1,9 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/AiHealthLab.Core/AiHealthLab.Core.csproj" />
+    <Project Path="src/Triage.Api/Triage.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Triage.Tests/Triage.Tests.csproj" />
   </Folder>
 </Solution>
