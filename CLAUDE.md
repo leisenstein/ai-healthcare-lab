@@ -15,3 +15,17 @@
 - New services get xUnit tests. Run unit tests before saying done.
 - Minimal API endpoints stay thin; logic lives in DI services.
 
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for leisenstein/ai-healthcare-lab (via the `gh` CLI). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-role vocabulary: `needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` and `docs/adr/` at the repo root. See `docs/agents/domain.md`.
