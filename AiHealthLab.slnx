@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/AiHealthLab.Core/AiHealthLab.Core.csproj" />
+  </Folder>
+</Solution>
