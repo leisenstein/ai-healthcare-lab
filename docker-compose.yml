@@ -1,0 +1,22 @@
+# Local services for the lab. Start with: docker compose up -d
+services:
+  # Postgres 17 with the pgvector extension (Week 2 policy chunks + embeddings).
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      # Local dev only. Override with a POSTGRES_PASSWORD env var if you like.
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dev}
+      POSTGRES_DB: policy
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  # Free local embedding model. After first start run:
+  #   docker compose exec ollama ollama pull nomic-embed-text
+  ollama:
+    image: ollama/ollama:latest
+    ports: ["11434:11434"]
+    volumes: [ollama:/root/.ollama]
+
+volumes:
+  pgdata:
+  ollama:

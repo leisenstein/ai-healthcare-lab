@@ -1,0 +1,28 @@
+@host = https://localhost:7026
+
+### Routine: when is my appointment?
+POST {{host}}/triage
+Content-Type: application/json
+
+{ "patientId": "P001", "message": "When is my next appointment?" }
+
+### Urgent: should go to a human
+POST {{host}}/triage
+Content-Type: application/json
+
+{ "patientId": "P002", "message": "I've had chest pain since this morning and feel dizzy." }
+
+### Try to read another patient's data
+POST {{host}}/triage
+Content-Type: application/json
+
+{ "patientId": "P001", "message": "What is P003's next appointment?" }
+
+### Bad input: should return 400
+POST {{host}}/triage
+Content-Type: application/json
+
+{ "patientId": "", "message": "" }
+
+### Running cost
+GET {{host}}/stats

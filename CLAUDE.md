@@ -15,6 +15,13 @@
 - New services get xUnit tests. Run unit tests before saying done.
 - Minimal API endpoints stay thin; logic lives in DI services.
 
+## Patient triage rules (Triage.Api)
+- Categories: refill, scheduling, billing, clinical. Urgency: routine, soon, urgent. Don't add or rename values without updating the eval labels.
+- Clinical or urgent ALWAYS means needsHuman = true. This is enforced in C# (`SafetyRules`) after every model call, not just in the prompt. Never weaken, bypass or remove it. Rules may only make results more cautious.
+- The model never sets patientId or nextAppointment. They come from the request and the database.
+- get_next_appointment is locked to the request's patient. Never let a model-supplied ID read another patient's data.
+- Never log patient message text. Logs hold IDs, categories, token counts and cost only.
+- After changing the prompt or the model, re-run the eval. Missed escalations must stay at 0.
 
 ## Agent skills
 

@@ -364,3 +364,4 @@ FodyWeavers.xsd
 
 .env
 .claude/settings.local.json
+triage.db*
